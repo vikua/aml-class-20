@@ -18,7 +18,7 @@ git clone https://github.com/vikua/aml-class-20.git
 cd aml-class-20
 ```
 
-### Create new virtual environment and install dependencies
+### Install with virtualenv & virtualenvwrapper
 
 ```bash
 mkvirtualenv aml
@@ -37,6 +37,21 @@ pip install -r requirements.txt
 Create ipython kernel:
 ```bash
 python -m ipykernel install --user --name aml
+```
+
+### Install with virtualenv only
+
+```bash
+virtualenv aml
+source aml/bin/activate
+pip install -r requirements.txt
+python -m ipykernel install --user --name aml
+```
+
+### Simple install using default python & pip
+
+```bash
+pip install -r requirements.txt
 ```
 
 ### Start Jupyter Notebook

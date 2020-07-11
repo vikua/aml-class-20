@@ -17,7 +17,7 @@ def train_regressor(path_or_url,
                     dtypes='infer',
                     test_size=0.2,
                     verbose=False,
-                    random_state=None):
+                    random_state=42):
     """Automatically train a regression model for a given dataset.
     
     Parameters
@@ -43,16 +43,13 @@ def train_regressor(path_or_url,
     verbose : bool, optional
         If True, display some messages.
     random_state : int, optional
-        If given, set RNG seed to this number.
+        Set RNG seed to this number.
     
     Returns
     -------
     
     """
-    if random_state is not None:
-        # TODO: maybe it should be set 
-        #  in some other places as well?
-        np.random.seed(random_state)
+    np.random.seed(random_state)
     
     data = pd.read_csv(path_or_url)
     variables = list(data.columns)
@@ -74,11 +71,14 @@ def train_regressor(path_or_url,
             for var, dtype in dtypes.items():
                 print(f"    {var: dtype}")
     else:
-        validate_dtypes(X, dtypes)
+        dtypes = validate_dtypes(X, dtypes)
     
-    # train-test split
     assert 0 < test_size < 1
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
+    (X_train, X_test, 
+     y_train, y_test
+    ) = train_test_split(
+        X, y, test_size=test_size, 
+        random_state=random_state)
     
     # nested-CV parameters search
     models = ['gbm', 'lr', 'svr', 'rf']

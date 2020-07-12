@@ -92,7 +92,6 @@ def train_regressor(path_or_url,
     # nested-CV parameters search
     scores = {}
     estimators = {}
-    pprint('')
     for model in ['lr', 'svr', 'gbm', 'rf']:
         pprint(f'Fitting {model.upper()}...')
         estimators[model] = RandomizedSearchCV(
@@ -121,5 +120,4 @@ def train_regressor(path_or_url,
     for p, v in estimator.best_params_.items():
         pprint(f'    {p}: {v}')
     
-    return estimator.best_estimator_, test_score, cv_score 
-    
+    return estimator.best_estimator_, test_score, cv_score

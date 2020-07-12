@@ -10,3 +10,20 @@ def validate_dtypes(df, dtypes):
 
 def infer_dtypes(df) -> dict:
     raise NotImplementedError("Data types deduction is not supported.")
+
+
+class Printer:
+    enabled: bool
+    
+    def __init__(self, enabled: bool):
+        self.enabled = enabled
+        
+    def enable(self):
+        self.enabled = True
+        
+    def disable(self):
+        self.enabled = False
+        
+    def __call__(self, x, *args, **kwargs):
+        if self.enabled:
+            print(x, *args, **kwargs)

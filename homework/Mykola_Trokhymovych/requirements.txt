@@ -1,0 +1,15 @@
+matplotlib == 3.2.2
+
+numpy == 1.18.1
+
+pandas == 1.0.5
+
+python_dateutil == 2.8.1
+
+sagemaker_scikit_learn_extension == 1.1.0
+
+scikit_optimize == 0.7.4
+
+seaborn == 0.10.1
+
+scikit-learn == 0.22.1

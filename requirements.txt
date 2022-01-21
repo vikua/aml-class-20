@@ -6,6 +6,6 @@ scikit-learn==0.20
 scipy==1.4.1
 seaborn==0.10.1
 TPOT==0.10.2
-ipython==7.14.0
+ipython==7.16.3
 jupyter==1.0.0
 scikit_optimize==0.7.4
